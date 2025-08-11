@@ -5,6 +5,7 @@
   "installCommand": "npm install",
   "framework": "vite",
   "outputDirectory": "dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -14,5 +15,8 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
+    
   ]
+  
 }
+
