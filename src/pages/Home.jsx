@@ -1,8 +1,7 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, Image, Button } from "@heroui/react";
+import { Card, CardBody, CardHeader, Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { Link } from 'react-router-dom';
-import VideoSection from '../components/VideoSection';
 
 const Home = () => {
   const scrollToCommunity = () => {
@@ -21,11 +20,14 @@ const Home = () => {
   return (
     <div className="space-y-12 bg-gray-50">
       <section className="relative h-[500px] sm:h-[600px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-primary/85 to-secondary/80 z-10 backdrop-blur-sm"></div>
-        <Image src="/images/profile-banner.jpg" alt="Content Creator Banner" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-600/85 to-blue-400/80 z-10 backdrop-blur-sm"></div>
+        {/* Remove non-existent image and use a solid color background instead */}
         <div className="relative z-20 h-[70%] flex flex-col justify-center items-center text-white px-2">
           <div className="mb-6 relative animate-fade-in">
-            <Image src="/images/profile.jpg" alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-lg animate-bounce-slow" />
+            {/* Replace non-existent profile image with an icon */}
+            <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg animate-bounce-slow bg-blue-500 flex items-center justify-center">
+              <Icon icon="material-symbols:person" className="text-4xl text-white" />
+            </div>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 text-center opacity-0 animate-slide-up">
             Welcome to <span> Q - FACT </span> <br /> 
@@ -34,7 +36,7 @@ const Home = () => {
             </span> <br /> 
           </h1>
           <p className="text-sm sm:text-xl md:text-xl mb-8 text-center max-w-2xl px-4 opacity-0 animate-slide-up-delay-1 font-light text-white-700">
-            I’m Raushan, the creator behind Q FACT . Whether you're here for videos, exclusive content, or tools to help you grow, you’re in the right place.
+            I'm Raushan, the creator behind Q FACT . Whether you're here for videos, exclusive content, or tools to help you grow, you're in the right place.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-slide-up-delay-2">
             <Button size="lg" color="secondary" className="text-base sm:text-lg px-6 sm:px-8" onClick={scrollToCommunity}>
@@ -71,10 +73,6 @@ const Home = () => {
         ))}
         </div>
       </section>
-
-      {/* <section className="container mx-auto px-4">
-        <VideoSection />
-      </section> */}
     </div>
   );
 };

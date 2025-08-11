@@ -5,14 +5,14 @@ import vitePluginInjectDataLocator from './plugins/vite-plugin-inject-data-locat
 import compression from 'vite-plugin-compression';
 
 export default defineConfig({
-  base: './',
+  // Remove base: './' to fix asset loading on Vercel
   define: {
     // Only define specific environment variables instead of entire process.env
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   },
   plugins: [react(), vitePluginInjectDataLocator(), tailwindcss(), compression()],
   build: {
-    target: 'es2015',
+    target: 'es2020', // Update to more modern target
     minify: 'terser',
     cssMinify: true,
     reportCompressedSize: true,
