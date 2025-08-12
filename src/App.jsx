@@ -1,34 +1,43 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
-const SimpleHome = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h1>Welcome to Q FACT</h1>
-    <p>Your trusted partner for quality solutions.</p>
-  </div>
-);
+// Layout components
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 
-const SimpleTest = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h1>✅ Test Page Working!</h1>
-    <p>If you can see this, routing is working!</p>
-  </div>
-);
+// Pages
+import Home from './pages/Home.jsx';
+import Shop from './pages/Shop.jsx';
+import Support from './pages/Support.jsx';
+import Privacy from './pages/Privacy.jsx';
+import Products from './pages/Products.jsx';
+import ProductDetails from './pages/ProductDetails.jsx';
+import Contact from './pages/Contact.jsx';
+import Test from './pages/Test.jsx';
 
 const App = () => {
-  console.log('App: Component rendering...');
-  
   return (
     <HashRouter>
-    <Router>
-      <div style={{ minHeight: '100vh', backgroundColor: '#f0f0f0' }}>
-        <Routes>
-          <Route path="/" element={<SimpleHome />} />
-          <Route path="/test" element={<SimpleTest />} />
-          <Route path="*" element={<SimpleHome />} />
-        </Routes>
-      </div>
-    </Router>
+      <ErrorBoundary>
+        <div className="min-h-screen flex flex-col bg-gray-50">
+          <Navbar />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/test" element={<Test />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </ErrorBoundary>
     </HashRouter>
   );
 };
