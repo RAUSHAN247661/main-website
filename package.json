@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "lint": "echo 'lint disabled for JS migration'",
     "clean": "if exist dist rmdir /s /q dist",
-    "deploy": "npm run clean && npm run build",
-    "homepage": "."
+    "deploy": "npm run clean && npm run build"
   },
   "dependencies": {
     "@heroui/react": "2.8.2",
